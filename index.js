@@ -33,12 +33,13 @@ app.get('/farms', async (req, res) => {
 });
 
 app.get('/farms/new', (req, res) => {
-    res.render('farms/new')
-})
+    res.render('farms/new');
+});
+
 app.get('/farms/:id', async (req, res) => {
     const farm = await Farm.findById(req.params.id).populate('products');
-    res.render('farms/show', { farm })
-})
+    res.render('farms/show', { farm });
+});
 
 app.delete('/farms/:id', async (req, res) => {
     const farm = await Farm.findByIdAndDelete(req.params.id);
