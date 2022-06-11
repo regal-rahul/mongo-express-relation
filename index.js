@@ -30,7 +30,8 @@ app.use(methodOverride('_method'))
 app.get('/farms', async (req, res) => {
     const farms = await Farm.find({});
     res.render('farms/index', { farms })
-})
+});
+
 app.get('/farms/new', (req, res) => {
     res.render('farms/new')
 })
@@ -51,7 +52,7 @@ app.delete('/farms/:id', async (req, res) => {
 app.post('/farms', async (req, res) => {
     const farm = new Farm(req.body);
     await farm.save();
-    res.redirect('/farms')
+    res.redirect('/farms');
 })
 
 app.get('/farms/:id/products/new', async (req, res) => {
